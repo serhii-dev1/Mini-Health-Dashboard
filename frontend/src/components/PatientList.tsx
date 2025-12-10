@@ -19,7 +19,7 @@ export function PatientList() {
 
     return (
         <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-slate-800">Patients</h2>
+            {patients.length > 0 && (<h2 className="text-2xl font-bold text-slate-800">Patients</h2>)}
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {patients.map(patient => (
                     <div
