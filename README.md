@@ -37,7 +37,7 @@ A full-stack health dashboard demonstrating React, Node.js, and Agentic AI (MCP)
    ```bash
    cd backend
    npm install
-   npx ts-node src/server.ts
+   npx ts-node src/server.ts or npm run start
    ```
    *Runs on http://localhost:3001*
 
