@@ -17,24 +17,23 @@ export function PatientDetail() {
     const [analyzing, setAnalyzing] = useState(false);
     const [liveMode, setLiveMode] = useState(false);
 
-    // Fetch data
-    const fetchData = async () => {
-        if (!patientId) return;
-        try {
-            const [p, b] = await Promise.all([
-                api.getPatient(patientId),
-                api.getBiomarkers(patientId)
-            ]);
-            setPatient(p);
-            setBiomarkers(b);
-        } catch (e) {
-            console.error(e);
-        } finally {
-            setLoading(false);
-        }
-    };
-
     useEffect(() => {
+        const fetchData = async () => {
+            if (!patientId) return;
+            try {
+                const [p, b] = await Promise.all([
+                    api.getPatient(patientId),
+                    api.getBiomarkers(patientId)
+                ]);
+                setPatient(p);
+                setBiomarkers(b);
+            } catch (e) {
+                console.error(e);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchData();
     }, [patientId]);
 
