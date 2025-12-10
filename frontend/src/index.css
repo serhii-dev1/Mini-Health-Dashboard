@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+:root {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-indigo-600) var(--color-purple-100);
+}
+
+::selection {
+    background-color: var(--color-indigo-600);
+    color: var(--color-purple-100);
+}
