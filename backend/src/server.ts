@@ -3,7 +3,6 @@ import cors from 'cors';
 import { patients, biomarkers } from './data';
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
-import { z } from "zod";
 import path from 'path';
 
 const app = express();
