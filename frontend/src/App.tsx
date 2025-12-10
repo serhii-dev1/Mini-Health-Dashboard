@@ -1,15 +1,26 @@
-import { Suspense, lazy } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Suspense, lazy, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import { Header } from './components/Header';
+import { setNavigate } from './api';
 
 const PatientList = lazy(() => import('./components/PatientList').then(module => ({ default: module.PatientList })));
 const PatientDetail = lazy(() => import('./components/PatientDetail').then(module => ({ default: module.PatientDetail })));
 const NotFound = lazy(() => import('./components/NotFound').then(module => ({ default: module.NotFound })));
 const ServiceUnavailable = lazy(() => import('./components/ServiceUnavailable').then(module => ({ default: module.ServiceUnavailable })));
 
+function NavigationHandler() {
+  const navigate = useNavigate();
+  console.log(navigate)
+  useEffect(() => {
+    setNavigate(navigate);
+  }, [navigate]);
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <NavigationHandler />
       <div className="min-h-screen bg-slate-50 flex flex-col">
         <Header />
 
