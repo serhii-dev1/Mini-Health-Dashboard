@@ -34,7 +34,7 @@ export interface AnalysisResult {
     recommendations: string[];
 }
 
-const API_Base = 'http://localhost:3001/api';
+const API_Base = import.meta.env.VITE_API_URL || '/api';
 
 export const api = {
     getPatients: async (): Promise<Patient[]> => {
